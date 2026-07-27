@@ -1,0 +1,15 @@
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\bin\Debug\net10.0\WorkflowSchedulerKata.exe
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\bin\Debug\net10.0\WorkflowSchedulerKata.deps.json
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\bin\Debug\net10.0\WorkflowSchedulerKata.runtimeconfig.json
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\bin\Debug\net10.0\WorkflowSchedulerKata.dll
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\bin\Debug\net10.0\WorkflowSchedulerKata.pdb
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.AssemblyInfoInputs.cache
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.AssemblyInfo.cs
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.csproj.CoreCompileInputs.cache
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.sourcelink.json
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.dll
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\refint\WorkflowSchedulerKata.dll
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.pdb
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\WorkflowSchedulerKata.genruntimeconfig.cache
+C:\Users\adamc\Documents\CSharpMasteryTrainingSelfTaught\WorkflowSchedulerKata\obj\Debug\net10.0\ref\WorkflowSchedulerKata.dll
