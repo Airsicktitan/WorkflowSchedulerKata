@@ -8,11 +8,12 @@ class Program
     static void Main(string[] args)
     {
         IReadOnlyCollection<WorkflowJob> jobs = FakeData.GetJobs();
-        IReadOnlyCollection<int> completedJobIds = [1, 2];
+        IReadOnlyCollection<int> completedJobIds = [];
 
         var workflowPlanner = new WorkflowPlanner();
 
         IReadOnlyCollection<WorkflowJob> readyJobs = workflowPlanner.GetReadyJobs(jobs, completedJobIds);
+        IReadOnlyCollection<WorkflowJob> executionPlan =  workflowPlanner.GetExecutionPlan(jobs);
 
         Console.WriteLine($"Completed Jobs: {string.Join(", ", completedJobIds)}");
 
@@ -20,8 +21,14 @@ class Program
 
         foreach (var job in readyJobs)
         {
-            Console.WriteLine($"Job {job.Id}: {job.Name}");
+            Console.WriteLine($"Job {job.Id}: {job.Name} - Priority: {job.Priority} - Estimated Duration: {job.EstimatedDurationMinutes}");
         }
         
+        Console.WriteLine("\nExecution Plan:");
+
+        foreach (var job in executionPlan)
+        {
+            Console.WriteLine($"Job {job.Id}: {job.Name} - Priority: {job.Priority} - Estimated Duration: {job.EstimatedDurationMinutes}");
+        }
     }
 }
