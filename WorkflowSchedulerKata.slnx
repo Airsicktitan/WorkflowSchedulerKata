@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WorkflowSchedulerKata.csproj" />
+  <Project Path="WorkflowSchedulerKata.Tests/WorkflowSchedulerKata.Tests.csproj" />
+</Solution>
