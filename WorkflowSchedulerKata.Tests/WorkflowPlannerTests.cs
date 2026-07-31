@@ -210,4 +210,62 @@ public class WorkflowPlannerTests
         // Assert
         Assert.Throws<ArgumentNullException>(executeWorkflow);
     }
+
+    [Fact]
+    public void ExecuteWorkflow_WhenJobsHaveDuplicateIds_ThrowsArgumentException()
+    {
+        // Arrange
+        IReadOnlyCollection<WorkflowJob> jobs =
+        [
+            new WorkflowJob(
+                id: 1,
+                name: "First Job",
+                estimatedDurationMinutes: 5,
+                priority: JobPriority.High,
+                dependencyIds: []),
+
+            new WorkflowJob(
+                id: 1,
+                name: "Duplicate Job",
+                estimatedDurationMinutes: 3,
+                priority: JobPriority.Medium,
+                dependencyIds: [])
+        ];
+
+        var planner = new WorkflowPlanner();
+
+        // Act
+        Action executeWorkflow = () =>
+            planner.ExecuteWorkflow(jobs, []);
+
+        // Assert
+        ArgumentException exception =
+            Assert.Throws<ArgumentException>(executeWorkflow);
+
+        Assert.Equal("jobs", exception.ParamName);
+        Assert.Contains("unique IDs", exception.Message);
+    }
+
+    [Fact]
+    public void ExecuteWorkflow_WhenCompletedJobIdDoesNotExist_ThrowsArgumentException()
+    {
+        // Arrange
+        IReadOnlyCollection<WorkflowJob> jobs = FakeData.GetJobs();
+        IReadOnlyCollection<int> completedJobIds = [1, 99];
+
+        var planner = new WorkflowPlanner();
+
+        // Act
+        Action executeWorkflow = () =>
+            planner.ExecuteWorkflow(jobs, completedJobIds);
+
+        // Assert
+        ArgumentException exception =
+            Assert.Throws<ArgumentException>(executeWorkflow);
+
+        Assert.Equal("completedJobIds", exception.ParamName);
+        Assert.Contains(
+            "do not exist in the workflow",
+            exception.Message);
+    }
 }

@@ -41,6 +41,25 @@ public class WorkflowPlanner
         ArgumentNullException.ThrowIfNull(jobs);
         ArgumentNullException.ThrowIfNull(completedJobIds);
 
+        HashSet<int> validateJobIds = jobs
+            .Select(job => job.Id)
+            .ToHashSet();
+
+        if (completedJobIds.Any(id => !validateJobIds.Contains(id)))
+        {
+            throw new ArgumentException(
+                "One or more completed job IDs do not exist in the workflow.",
+                nameof(completedJobIds));
+        }
+
+        if (validateJobIds.Count != jobs.Count)
+        {
+            throw new ArgumentException(
+                "Workflow jobs must have unique IDs.",
+                nameof(jobs)
+            );
+        }
+
         HashSet<int> completedJobIdSet = completedJobIds.ToHashSet();
         List<WorkflowJob> executedJobs = [];
 
