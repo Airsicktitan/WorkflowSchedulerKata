@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkflowSchedulerKata")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3634cb92c85588116783d4cd451d87bca6ff2a4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea4c29f280248b53b613a968019517a9c803e5ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkflowSchedulerKata")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkflowSchedulerKata")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

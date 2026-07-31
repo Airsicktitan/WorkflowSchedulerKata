@@ -33,25 +33,31 @@ public class WorkflowPlanner
 
     public IReadOnlyCollection<WorkflowJob> GetExecutionPlan(IReadOnlyCollection<WorkflowJob> jobs)
     {
+        return ExecuteWorkflow(jobs, []);
+    }
+
+    public IReadOnlyCollection<WorkflowJob> ExecuteWorkflow(IReadOnlyCollection<WorkflowJob> jobs, IReadOnlyCollection<int> completedJobIds)
+    {
         ArgumentNullException.ThrowIfNull(jobs);
+        ArgumentNullException.ThrowIfNull(completedJobIds);
 
-        List<WorkflowJob> executionPlan = [];
-        List<int> completedJobIds = [];
+        HashSet<int> completedJobIdSet = completedJobIds.ToHashSet();
+        List<WorkflowJob> executedJobs = [];
 
-        while(executionPlan.Count < jobs.Count)
+        while (jobs.Any(job => !completedJobIdSet.Contains(job.Id)))
         {
-            IReadOnlyCollection<WorkflowJob> readyJobs = GetReadyJobs(jobs, completedJobIds);
+            IReadOnlyCollection<WorkflowJob> readyJobs = GetReadyJobs(jobs, completedJobIdSet);
 
-            if(readyJobs.Count == 0)
+            if (readyJobs.Count == 0)
             {
                 throw new InvalidOperationException("The workflow cannot be completed because no remaining jobs are ready.");
             }
 
             WorkflowJob nextJob = readyJobs.First();
-            executionPlan.Add(nextJob);
-            completedJobIds.Add(nextJob.Id);
+            executedJobs.Add(nextJob);
+            completedJobIdSet.Add(nextJob.Id);
         }
 
-        return executionPlan.AsReadOnly();
+        return executedJobs.AsReadOnly();
     }
 }
